@@ -5,7 +5,7 @@ interface Post {
   id: number;
   title: string;
   created_at: string; // Change to string for ISO date strings
-  updated_at: string; // Change to string for ISO date strings
+  updated_at: string; // Change to string for ISO 
 }
 
 
