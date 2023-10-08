@@ -1,13 +1,13 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+// pages/index.tsx
+import React from 'react';
+import PostList from '../components/PostList';
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">About</Link>
-    </p>
-  </Layout>
-)
+const Home: React.FC = () => {
+  return (
+    <div>
+      <PostList />
+    </div>
+  );
+};
 
-export default IndexPage
+export default Home;
