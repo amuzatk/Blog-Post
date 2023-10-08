@@ -6,6 +6,7 @@ import PostCard from "./PostCard";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { setPosts } from "../redux/reducers/posts";
+import Button from "./Button/Button";
 
 const PostList: React.FC = () => {
   const { data, isLoading, isError } = usePosts();
@@ -44,6 +45,7 @@ const PostList: React.FC = () => {
   return (
     <>
       <h1>Blog Posts</h1>
+      {/* <Button onClick={}>Create Post</Button> */}
       <StyledCont>
         {data.map((post: BlogPost) => (
           <div key={post.id}>
