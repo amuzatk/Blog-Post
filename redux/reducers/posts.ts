@@ -4,6 +4,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface Post {
   id: number;
   title: string;
+  body: string;
   created_at: string; // Change to string for ISO date strings
   updated_at: string; // Change to string for ISO 
 }

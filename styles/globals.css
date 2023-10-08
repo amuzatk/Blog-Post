@@ -22,25 +22,6 @@ a {
 
 .cards-wrapper {
   border: 3px solid rgb(9, 255, 0);
-  /* display: grid;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 4rem;
-  padding: 4rem;
-  margin: 0 auto;
-  width: max-content; */
-
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* grid-template-columns: repeat(3, 1fr); */
-  /* grid-gap: 4rem; */
-  /* padding: 4rem; */
-  /* margin: 0 auto; */
-  /* width: max-content; */
-
 }
 
 .card {
@@ -67,6 +48,23 @@ a {
   text-decoration: none;
 }
 
+.card2 {
+  font-family: 'Heebo';
+  background-image:  url( https://images.unsplash.com/photo-1520839090488-4a6c211e2f94?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=38951b8650067840307cba514b554ba5&auto=format&fit=crop&w=1350&q=80 );
+  font-size: 1em;
+  color: white;
+  border-radius: 1em;
+  padding: 4rem 1rem;
+  margin: 3rem 1rem;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  transition: all, var(--transition-time);
+  text-decoration: none;
+}
+
 
 .card:hover {
   transform: rotate(0);
@@ -76,8 +74,11 @@ a {
   margin: 0;
   font-size: 1.4em;
   line-height: 1.2em;
-  /* font-size: 1em;
-  line-height: 1em; */
+}
+.card2 h1 {
+  margin: 0;
+  font-size: 1.6em;
+  line-height: 1.2em;
 }
 
 .card p {
@@ -87,6 +88,12 @@ a {
   line-height: 2em;
 }
 
+.card2 p {
+  font-size: 0.75em;
+  font-family: 'Open Sans';
+  margin-top: 0.5em;
+  line-height: 2em;
+}
 .card .tags {
   display: flex;
 }
@@ -186,10 +193,6 @@ a {
   .info {
     justify-content: center;
   }
-  /* .card-grid-space .num {
-    /margin-left: 0;
-    /text-align: center;
-  } */
 }
 
 @media screen and (max-width: 500px) {
@@ -208,5 +211,12 @@ a {
   }
   .info h1 {
     margin: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .card2 {
+    font-size: 2em;
+    padding: 5rem 3rem;
+    margin: 2rem 2rem;
   }
 }
