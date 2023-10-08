@@ -1,3 +1,4 @@
+// components/PostList.tsx
 import React, { useEffect } from "react";
 import { usePosts, fetchPosts } from "../api/posts";
 import { BlogPost } from "../interfaces";
