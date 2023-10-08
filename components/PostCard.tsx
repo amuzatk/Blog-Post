@@ -31,9 +31,13 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
                 : post.body}
             </p>
             <div className="date">
-              <p>{post.created_at.toLocaleString()}</p>
+              <p> {formatDate(post.created_at)}</p>
             </div>
-            <Link className="tags" href="/post/[postId]" as={`/post/${post.id}`}>
+            <Link
+              className="tags"
+              href="/post/[postId]"
+              as={`/post/${post.id}`}
+            >
               <Button>Read More</Button>
             </Link>
           </div>
@@ -46,3 +50,17 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
 export default PostCard;
 
 const StyledCard = styled.div``;
+
+function formatDate(date: Date | string) {
+  const formattedDate = new Date(date).toLocaleString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    timeZoneName: "short",
+  });
+
+  return formattedDate;
+}

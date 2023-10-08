@@ -8,20 +8,15 @@ import styled from "styled-components";
 const PostDetailPage: React.FC = () => {
   const router = useRouter();
   const { postId } = router.query;
-  console.log(postId, "postId");
 
   // Access the posts data from Redux
   const posts = useSelector((state: RootState) => state.posts.data);
-  console.log(posts, "posts");
 
   // Define isLoading based on whether posts are being fetched
   const isLoading = useSelector((state: RootState) => state.posts.loading);
 
   // Find the post with the matching ID
   const post = posts.find((p) => p.id === Number(postId));
-
-  console.log("Posts:", posts); // Check if posts are being retrieved
-  console.log("Post:", post); // Check if the correct post is being found
 
   if (isLoading) {
     return <div>Loading...</div>; // Handle the case where data is still being fetched
@@ -39,8 +34,8 @@ const PostDetailPage: React.FC = () => {
             <div>
               <h1>{post.title}</h1>
               <p>{post.body}</p>
-              <p>Created At: {post.created_at.toLocaleString()}</p>
-              <p>Updated At: {post.updated_at.toLocaleString()}</p>
+              <p>Created At: {formatDate(post.created_at)}</p>
+              <p>Updated At: {formatDate(post.updated_at)}</p>
             </div>
           </div>
         </div>
@@ -60,3 +55,17 @@ const StyledCont = styled.div`
   flex-basis: auto;
   gap: 15px 10px;
 `;
+
+function formatDate(date: Date | string) {
+  const formattedDate = new Date(date).toLocaleString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    timeZoneName: "short",
+  });
+
+  return formattedDate;
+}
