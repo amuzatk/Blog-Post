@@ -4,7 +4,9 @@ import { BlogPost } from '../interfaces'; // Import the BlogPost interface
 
 export const fetchPosts = async () => {
   try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    
+    // const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    const response = await axios.get('https://fakestoreapi.com/products');
     const postsFromApi = response.data;
     // console.log(postsFromApi,'postsFromApi')
 
