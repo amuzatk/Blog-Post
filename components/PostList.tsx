@@ -8,7 +8,8 @@ import { useDispatch } from "react-redux";
 import { setPosts } from "../redux/reducers/posts";
 import Button from "./Button/Button";
 
-const PostList: React.FC = () => {
+// const PostList: React.FC = () => {
+  const PostList: React.FC<{ searchValue: string }> = ({ searchValue }) => {
   const { data, isLoading, isError } = usePosts();
   const dispatch = useDispatch();
 
@@ -42,18 +43,37 @@ const PostList: React.FC = () => {
     return null;
   }
 
+
+  const filteredData = data.filter((post: BlogPost) => {
+    // Filter posts based on the search input value
+    return post.title.toLowerCase().includes(searchValue.toLowerCase()) || 
+           post.body.toLowerCase().includes(searchValue.toLowerCase());
+  });
+
   return (
+    // <>
+    //   <h1>Blog Posts</h1>
+    //   <StyledCont>
+    //     {data.map((post: BlogPost) => (
+    //       <div key={post.id}>
+    //         <PostCard post={post} />
+    //       </div>
+    //     ))}
+    //   </StyledCont>
+    // </>
+
+
     <>
-      <h1>Blog Posts</h1>
-      {/* <Button onClick={}>Create Post</Button> */}
-      <StyledCont>
-        {data.map((post: BlogPost) => (
-          <div key={post.id}>
-            <PostCard post={post} />
-          </div>
-        ))}
-      </StyledCont>
-    </>
+    <h1>Blog Posts</h1>
+    {/* ... */}
+    <StyledCont>
+      {filteredData.map((post: BlogPost) => (
+        <div key={post.id}>
+          <PostCard post={post} />
+        </div>
+      ))}
+    </StyledCont>
+  </>
   );
 };
 
