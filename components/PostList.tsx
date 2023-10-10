@@ -52,27 +52,30 @@ const PostList: React.FC<{ searchValue: string; currentPage: number; onPageChang
   const displayedData = filteredData.slice(startIndex, endIndex);
 
   return (
-    <>
+    <StyledCont>
       <StyledH>Blog Posts</StyledH>
-      <StyledCont>
+      <StyledMain>
         {displayedData.map((post: BlogPost) => (
           <div key={post.id}>
             <PostCard post={post} />
           </div>
         ))}
-      </StyledCont>
+      </StyledMain>
       <Pagination
         current={currentPage}
         total={filteredData.length}
         pageSize={itemsPerPage}
         onChange={onPageChange}
       />
-    </>
+    </StyledCont>
   );
 };
 
 export default PostList;
 const StyledCont = styled.div`
+padding-bottom: 1rem;
+`;
+const StyledMain = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
