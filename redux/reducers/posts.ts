@@ -1,4 +1,3 @@
-// redux/reducers/posts.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Post {
@@ -13,8 +12,8 @@ interface PostsState {
   data: Post[];
   loading: boolean;
   error: string | null;
-  searchQuery: string; // Add a searchQuery property
-  currentPage: number; // Add currentPage and postsPerPage properties
+  searchQuery: string; 
+  currentPage: number; 
   postsPerPage: number;
 }
 
@@ -22,9 +21,9 @@ const initialState: PostsState = {
   data: [],
   loading: false,
   error: null,
-  searchQuery: '', // Initialize searchQuery to an empty string
-  currentPage: 1, // Initialize currentPage to 1
-  postsPerPage: 10, // Initialize postsPerPage to your desired value
+  searchQuery: '', 
+  currentPage: 1,
+  postsPerPage: 10, 
 };
 
 const postsSlice = createSlice({
@@ -38,10 +37,8 @@ const postsSlice = createSlice({
     },
     
     updatePost: (state, action: PayloadAction<Post>) => {
-      // Find the index of the post to be updated
       const index = state.data.findIndex((post) => post.id === action.payload.id);
       if (index !== -1) {
-        // Update the post in the array
         state.data[index] = action.payload;
         state.loading = false;
         state.error = null;
@@ -54,7 +51,6 @@ const postsSlice = createSlice({
     },
 
     createPost: (state, action: PayloadAction<Post>) => {
-      // Add the new post to the array of posts
       state.data.push(action.payload);
     },
 
