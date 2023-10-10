@@ -26,7 +26,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
           <div>
             <h1>{post.title}</h1>
             <p>
-              {post.body.length > 50
+              {post?.body?.length > 50
                 ? `${post.body.substring(0, 50)}...`
                 : post.body}
             </p>
