@@ -1,8 +1,6 @@
-// components/PostCard.tsx
 import React from "react";
 import { BlogPost } from "../interfaces";
-import { useRouter } from "next/router"; // Import useRouter
-import Image from "next/image";
+import { useRouter } from "next/router";
 import Button from "./Button/Button";
 import styled from "styled-components";
 import Link from "next/link";
@@ -12,10 +10,9 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
-  const router = useRouter(); // Initialize the router
+  const router = useRouter();
 
   const handleReadMoreClick = () => {
-    // Navigate to the detail page with the post's ID
     router.push(`/post/${post.id}`);
   };
 

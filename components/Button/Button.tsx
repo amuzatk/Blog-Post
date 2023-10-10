@@ -1,8 +1,6 @@
-// styles/Button.js
 import styled from 'styled-components';
 
 const Button = styled.button`
-  /* background-color: #007bff; */
   background-color:   #3c3163;
   color: white;
   padding: 10px 20px;
