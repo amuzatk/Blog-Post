@@ -1,91 +1,21 @@
 // // components/PostList.tsx
-// import React, { useEffect } from "react";
+// import React, { useEffect, useState } from "react";
 // import { usePosts, fetchPosts } from "../api/posts";
 // import { BlogPost } from "../interfaces";
 // import PostCard from "./PostCard";
 // import styled from "styled-components";
 // import { useDispatch } from "react-redux";
 // import { setPosts } from "../redux/reducers/posts";
-// import Button from "./Button/Button";
+// import { Pagination } from "antd";
 
-// const PostList: React.FC = () => {
+// const PostList: React.FC<{ searchValue: string; currentPage: number }> = ({
+//   searchValue,
+//   currentPage,
+// }) => {
 //   const { data, isLoading, isError } = usePosts();
 //   const dispatch = useDispatch();
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const posts = await fetchPosts();
-//         const serializedPosts = posts.map((post: any) => ({
-//           ...post,
-//           created_at: new Date().toISOString(), // Convert to ISO string
-//           updated_at: new Date().toISOString(), // Convert to ISO string
-//         }));
-//         dispatch(setPosts(serializedPosts));
-//       } catch (error) {
-//         console.error("An error occurred while fetching posts:", error);
-//       }
-//     };
-
-//     fetchData();
-//   }, [dispatch]);
-
-//   if (isLoading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   if (isError) {
-//     return <div>Error fetching posts.</div>;
-//   }
-
-//   if (!data) {
-//     return null;
-//   }
-
-//   return (
-//     <>
-//       <h1>Blog Posts</h1>
-//       {/* <Button onClick={}>Create Post</Button> */}
-//       <StyledCont>
-//         {data.map((post: BlogPost) => (
-//           <div key={post.id}>
-//             <PostCard post={post} />
-//           </div>
-//         ))}
-//       </StyledCont>
-//     </>
-//   );
-// };
-
-// export default PostList;
-
-// const StyledCont = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-wrap: wrap;
-//   flex-grow: 1;
-//   flex-basis: auto;
-//   gap: 15px 10px;
-// `;
-
-
-// // components/PostList.tsx
-// import React, { useEffect } from "react";
-// import { usePosts, fetchPosts } from "../api/posts";
-// import { BlogPost } from "../interfaces";
-// import PostCard from "./PostCard";
-// import styled from "styled-components";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setPosts, searchPosts } from "../redux/reducers/posts"; // Import the new action
-// import Button from "./Button/Button";
-// import { RootState } from "../redux/store";
-
-// const PostList: React.FC = () => {
-//   const { data, isLoading, isError } = usePosts();
-//   const dispatch = useDispatch();
-//   const posts = useSelector((state: RootState) => state.posts.data); // Add this line to get the posts from the Redux store
-//   const searchQuery = useSelector((state: RootState) => state.posts.searchQuery); // Add this line to get the search query from the Redux store
+//   const [itemsPerPage] = useState(10);
 
 //   useEffect(() => {
 //     const fetchData = async () => {
@@ -105,13 +35,6 @@
 //     fetchData();
 //   }, [dispatch]);
 
-//   useEffect(() => {
-//     // Handle the search query when it changes
-//     if (searchQuery) {
-//       dispatch(searchPosts(searchQuery));
-//     }
-//   }, [dispatch, searchQuery]);
-
 //   if (isLoading) {
 //     return <div>Loading...</div>;
 //   }
@@ -120,26 +43,36 @@
 //     return <div>Error fetching posts.</div>;
 //   }
 
-//   if (!data) {
-//     return null;
-//   }
+//   // Filter data based on searchValue
+//   const filteredData = data.filter((post: BlogPost) =>
+//     post.title.toLowerCase().includes(searchValue.toLowerCase())
+//   );
+
+//   // Now you can safely slice the data for pagination
+//   const startIndex = (currentPage - 1) * itemsPerPage;
+//   const endIndex = startIndex + itemsPerPage;
+//   const displayedData = filteredData.slice(startIndex, endIndex);
 
 //   return (
 //     <>
 //       <h1>Blog Posts</h1>
 //       <StyledCont>
-//         {posts.map((post: BlogPost) => (
+//         {displayedData.map((post: BlogPost) => (
 //           <div key={post.id}>
 //             <PostCard post={post} />
 //           </div>
 //         ))}
 //       </StyledCont>
+//       <Pagination
+//         current={currentPage}
+//         total={filteredData.length}
+//         pageSize={itemsPerPage}
+//       />
 //     </>
 //   );
 // };
 
 // export default PostList;
-
 // const StyledCont = styled.div`
 //   display: flex;
 //   justify-content: center;
@@ -208,6 +141,7 @@
 // };
 
 // export default Home;
+
 
 
 // components/PostList.tsx
@@ -296,3 +230,4 @@ const StyledCont = styled.div`
   flex-basis: auto;
   gap: 15px 10px;
 `;
+
