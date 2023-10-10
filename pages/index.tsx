@@ -162,7 +162,9 @@ const Home: React.FC = () => {
           <CreatePost />
         </Modal>
 
-        <PostList />
+        <PostList searchValue={""} currentPage={0} onPageChange={function (page: number): void {
+          throw new Error("Function not implemented.");
+        } } />
         
         <Pagination
           current={currentPage}
