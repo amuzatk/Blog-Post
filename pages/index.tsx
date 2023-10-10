@@ -49,6 +49,7 @@ const Home: React.FC = () => {
         open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={null}
       >
         <CreatePost />
       </Modal>
