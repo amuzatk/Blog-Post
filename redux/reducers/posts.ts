@@ -1,4 +1,3 @@
-// redux/reducers/posts.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Post {
@@ -13,12 +12,18 @@ interface PostsState {
   data: Post[];
   loading: boolean;
   error: string | null;
+  searchQuery: string; 
+  currentPage: number; 
+  postsPerPage: number;
 }
 
 const initialState: PostsState = {
   data: [],
   loading: false,
   error: null,
+  searchQuery: '', 
+  currentPage: 1,
+  postsPerPage: 10, 
 };
 
 const postsSlice = createSlice({
@@ -32,10 +37,8 @@ const postsSlice = createSlice({
     },
     
     updatePost: (state, action: PayloadAction<Post>) => {
-      // Find the index of the post to be updated
       const index = state.data.findIndex((post) => post.id === action.payload.id);
       if (index !== -1) {
-        // Update the post in the array
         state.data[index] = action.payload;
         state.loading = false;
         state.error = null;
@@ -48,8 +51,22 @@ const postsSlice = createSlice({
     },
 
     createPost: (state, action: PayloadAction<Post>) => {
-      // Add the new post to the array of posts
       state.data.push(action.payload);
+    },
+
+    searchPosts: (state, action: PayloadAction<string>) => {
+      const query = action.payload.toLowerCase();
+      state.data = state.data.filter((post) =>
+        post.title.toLowerCase().includes(query)
+      );
+    },
+    
+    setPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
+    },
+
+    setPostsPerPage: (state, action: PayloadAction<number>) => {
+      state.postsPerPage = action.payload;
     },
 
     setLoading: (state, action: PayloadAction<boolean>) => {
@@ -63,5 +80,5 @@ const postsSlice = createSlice({
   },
 });
 
-export const { setPosts, updatePost, deletePost, createPost, setLoading, setError } = postsSlice.actions;
+export const { setPosts, updatePost, deletePost, createPost,searchPosts, setPage,setLoading, setError } = postsSlice.actions;
 export default postsSlice.reducer;
