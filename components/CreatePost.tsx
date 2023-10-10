@@ -63,6 +63,9 @@ const CreatePost: React.FC = () => {
             value={newPost.body}
             onChange={handleInputChange}
             required
+            rows={5}
+            cols={50}
+            style={{ width: "100%", borderRadius:"6px" }}
           />
         </div>
         <button type="submit">Create Post</button>
