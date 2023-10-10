@@ -29,7 +29,8 @@ a {
   --bg-filter-opacity: 0.5;
   background-image:  url( https://images.unsplash.com/photo-1520839090488-4a6c211e2f94?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=38951b8650067840307cba514b554ba5&auto=format&fit=crop&w=1350&q=80 ) ;
   height: 20em;
-  width: 15em;
+  /* width: 15em; */
+  width: 13em;
   font-size: 1.5em;
   color: white;
   border-radius: 1em;
@@ -203,6 +204,44 @@ form button {
   font-size: 15px;
 }
 
+.arrow-home{
+  border: 1px solid rgb(238, 233, 233);
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 9px;
+}
+
+.edit-delete {
+  border: 1px solid rgb(238, 233, 233);
+  padding: 9px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.edit-delete button{
+  font-size: 25px;
+}
+
+.container{
+  padding: 1rem;
+}
+
+ .search{
+  width: 30px;
+  gap: 10px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+.search input{
+  width: 30%;
+}
+
 /* MEDIA QUERIES */
 @media screen and (max-width: 1285px) {
   .cards-wrapper {
@@ -239,41 +278,6 @@ form button {
   }
 }
 
-.arrow-home{
-  border: 1px solid rgb(238, 233, 233);
-  font-size: 18px;
-  text-decoration: none;
-  border-radius: 5px;
-  padding: 9px;
-}
-
-.edit-delete {
-  border: 1px solid rgb(238, 233, 233);
-  padding: 9px;
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-}
-
-.edit-delete button{
-  font-size: 25px;
-}
-
-.container{
-  /* border: 1px solid red; */
-  padding: 1rem;
-}
-
- .search{
-  width: 30px;
-  gap: 10px;
-  display: flex;
-}
-.search input{
-  width: 30%;
-}
 @media screen and (max-width: 450px) {
   .info {
     display: block;

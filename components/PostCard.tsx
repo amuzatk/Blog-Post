@@ -12,22 +12,16 @@ interface PostCardProps {
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const router = useRouter();
 
-  // const handleReadMoreClick = () => {
-  //   router.push(`/post/${post.id}`);
-  // };
-
   return (
     <StyledCard>
       <div className="card-grid-space">
         <div className="card">
           <div>
             <h1>
-              {/* {post.title} */}
-
               {post.title.length > 50
                 ? `${post.title?.substring(0, 50)}...`
                 : post.title}
-              </h1>
+            </h1>
             <p>
               {post?.body?.length > 50
                 ? `${post?.body?.substring(0, 50)}...`
@@ -52,7 +46,9 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
 
 export default PostCard;
 
-const StyledCard = styled.div``;
+const StyledCard = styled.div`
+
+`;
 
 function formatDate(date: Date | string) {
   const formattedDate = new Date(date).toLocaleString("en-US", {
