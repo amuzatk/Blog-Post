@@ -14,10 +14,10 @@ interface PostCardProps {
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const router = useRouter(); // Initialize the router
 
-  const handleReadMoreClick = () => {
-    // Navigate to the detail page with the post's ID
-    router.push(`/post/${post.id}`);
-  };
+  // const handleReadMoreClick = () => {
+  //   // Navigate to the detail page with the post's ID
+  //   router.push(`/post/${post.id}`);
+  // };
 
   return (
     <StyledCard>
