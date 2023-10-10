@@ -86,12 +86,14 @@ const PostDetailPage: React.FC = () => {
                 )}
                 <p>Created At: {formatDate(post.created_at)}</p>
                 <p>Updated At: {formatDate(post.updated_at)}</p>
+                <div className="edit-delete">
                 {editedPost ? null : (
                   <button onClick={handleEditClick}>Edit</button>
                 )}
                 {!editedPost && (
                   <button onClick={handleDeleteClick}>Delete</button>
                 )}
+                </div>
               </>
             ) : (
               <StyledP>DELETED!!!</StyledP>
