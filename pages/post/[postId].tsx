@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { BlogPost } from "../../interfaces";
 import { updatePost, deletePost } from "../../redux/reducers/posts";
 import router, { useRouter } from "next/router";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import Link from "next/link";
 
 const PostDetailPage: React.FC = () => {
   const { postId } = useRouter().query;
@@ -50,11 +52,15 @@ const PostDetailPage: React.FC = () => {
       });
     }
   };
+  
   return (
     <StyledCont>
       <div className="card-grid-space">
         <div className="card2">
-          <div>
+          <div >
+            <Link href="/" className="arrow-home">
+                <ArrowLeftOutlined /> Home
+            </Link>
             {post ? (
               <>
                 <h1>{post.title}</h1>
@@ -128,3 +134,4 @@ function formatDate(date: Date | string) {
 
   return formattedDate;
 }
+
