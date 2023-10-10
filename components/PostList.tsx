@@ -53,7 +53,7 @@ const PostList: React.FC<{ searchValue: string; currentPage: number; onPageChang
 
   return (
     <>
-      <h1>Blog Posts</h1>
+      <StyledH>Blog Posts</StyledH>
       <StyledCont>
         {displayedData.map((post: BlogPost) => (
           <div key={post.id}>
@@ -80,5 +80,10 @@ const StyledCont = styled.div`
   flex-grow: 1;
   flex-basis: auto;
   gap: 15px 10px;
+`;
+const StyledH = styled.h1`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 

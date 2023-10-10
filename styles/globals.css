@@ -261,6 +261,19 @@ form button {
   font-size: 25px;
 }
 
+.container{
+  /* border: 1px solid red; */
+  padding: 1rem;
+}
+
+ .search{
+  width: 30px;
+  gap: 10px;
+  display: flex;
+}
+.search input{
+  width: 30%;
+}
 @media screen and (max-width: 450px) {
   .info {
     display: block;
@@ -270,10 +283,21 @@ form button {
     margin: 0;
   }
 }
+@media screen and (max-width: 768px) {
+.search{
+  width: 100%;
+}
+}
 @media screen and (min-width: 768px) {
   .card2 {
     font-size: 2em;
     padding: 5rem 3rem;
     margin: 2rem 2rem;
+  }
+
+  .search{
+    width: 100%;
+    /* gap: 10px;
+    display: flex; */
   }
 }

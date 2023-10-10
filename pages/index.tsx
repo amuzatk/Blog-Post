@@ -33,17 +33,19 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="container">
+      <div className="search">
       <Button type="primary" onClick={showModal}>
         Create Post
       </Button>
       <Input
         type="text"
-        placeholder="Search posts..."
+        placeholder="Search posts by title..."
         value={searchValue}
         onChange={handleSearchChange}
       />
       <Button onClick={handleSearch}>Search</Button>
+      </div>
       <Modal
         title="Create a New Post"
         open={isModalVisible}

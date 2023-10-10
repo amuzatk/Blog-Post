@@ -75,6 +75,9 @@ const PostDetailPage: React.FC = () => {
                       name="body"
                       value={editedPost.body}
                       onChange={handleInputChange}
+                      cols={100}
+                      rows={20}
+                      style={{width:'100%', borderRadius:'8PX'}}
                     />
                     <button type="submit">Save</button>
                     <button type="button" onClick={handleCancelEdit}>
