@@ -105,7 +105,7 @@ const PostList: React.FC<{ searchValue: string; currentPage: number; onPageChang
   const { data, isLoading, isError } = usePosts();
   const dispatch = useDispatch();
 
-  const [itemsPerPage] = useState(9);
+  const [itemsPerPage] = useState(10);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -327,44 +327,6 @@ const PostDetailPage: React.FC = () => {
       </div>
     </StyledCont>
   );
-
-  // return (
-  //   <StyledCont>
-  //     <div className="card-grid-space">
-  //       <div className="card2">
-  //         <div>
-  //           <h1>{post.title}</h1>
-  //           {editedPost ? (
-  //             <form onSubmit={handleSaveEdit}>
-  //               <input
-  //                 name="title"
-  //                 value={editedPost.title}
-  //                 onChange={handleInputChange}
-  //               />
-  //               <textarea
-  //                 name="body"
-  //                 value={editedPost.body}
-  //                 onChange={handleInputChange}
-  //               />
-  //               <button type="submit">Save</button>
-  //               <button type="button" onClick={handleCancelEdit}>
-  //                 Cancel
-  //               </button>
-  //             </form>
-  //           ) : (
-  //             <p>{post.body}</p>
-  //           )}
-  //           <p>Created At: {formatDate(post.created_at)}</p>
-  //           <p>Updated At: {formatDate(post.updated_at)}</p>
-  //           {editedPost ? null : (
-  //             <button onClick={handleEditClick}>Edit</button>
-  //           )}
-  //           {!editedPost && <button onClick={handleDeleteClick}>Delete</button>}
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </StyledCont>
-  // );
 };
 
 export default PostDetailPage;

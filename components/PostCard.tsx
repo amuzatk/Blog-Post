@@ -24,11 +24,11 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       <div className="card-grid-space">
         <div className="card">
           <div>
-            <h1>{post.title}</h1>
+            <h1>{post?.title}</h1>
             <p>
-              {post.body.length > 50
-                ? `${post.body.substring(0, 50)}...`
-                : post.body}
+              {post?.body?.length > 50
+                ? `${post?.body?.substring(0, 50)}...`
+                : post?.body}
             </p>
             <div className="date">
               <p> {formatDate(post.created_at)}</p>
