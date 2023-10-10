@@ -1,6 +1,6 @@
-// components/PostCard.tsx
 import React from "react";
 import { BlogPost } from "../interfaces";
+import { useRouter } from "next/router";
 import Button from "./Button/Button";
 import styled from "styled-components";
 import Link from "next/link";
@@ -10,6 +10,11 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
+  const router = useRouter();
+
+  const handleReadMoreClick = () => {
+    router.push(`/post/${post.id}`);
+  };
 
   return (
     <StyledCard>
@@ -18,12 +23,12 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
           <div>
             <h1>{post.title}</h1>
             <p>
-              {post.body && post.body.length > 50
-                ? `${post.body.substring(0, 50)}...`
-                : post.body}
+              {post?.body?.length > 50
+                ? `${post?.body?.substring(0, 50)}...`
+                : post?.body}
             </p>
             <div className="date">
-              <p> {formatDate(post.created_at)}</p>
+              <p> {formatDate(post?.created_at)}</p>
             </div>
             <Link
               className="tags"

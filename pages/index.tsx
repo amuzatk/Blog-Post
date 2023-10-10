@@ -1,14 +1,12 @@
-// export default Home;
 import React, { useState } from "react";
-import CreatePostModal from "../components/CreatePostModal";
 import PostList from "../components/PostList";
-import { Modal, Button, Input } from "antd"; // Import Ant Design components
+import { Modal, Button, Input } from "antd";
 import CreatePost from "../components/CreatePost";
 
 const Home: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [currentPage, setCurrentPage] = useState(1); // Add currentPage state
+  const [currentPage, setCurrentPage] = useState(1);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -27,12 +25,10 @@ const Home: React.FC = () => {
   };
 
   const handleSearch = () => {
-    // When searching, reset currentPage to 1
     setCurrentPage(1);
   };
 
   const handlePageChange = (page: number) => {
-    // Update the currentPage state when the user interacts with pagination
     setCurrentPage(page);
   };
 
